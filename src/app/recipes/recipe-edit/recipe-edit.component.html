@@ -1,0 +1,117 @@
+<div class='row'>
+  <div class='col-xs-12'>
+    <form (ngSubmit)='onSubmit()' [formGroup]='recipeForm'>
+      <div class='row'>
+        <div class='col-xs-12'>
+          <button
+            [disabled]='!recipeForm.valid'
+            class='btn btn-success'
+            type='submit'>Save
+          </button>
+          <button
+            (click)='onCancel()'
+            class='btn btn-danger'
+            type='button'>Cancel
+          </button>
+        </div>
+      </div>
+      <div class='row'>
+        <div class='col-xs-12'>
+          <div class='form-group'>
+            <label for='name'>Name</label>
+            <input
+              class='form-control'
+              formControlName='name'
+              id='name'
+              type='text'>
+          </div>
+        </div>
+      </div>
+      <div class='row'>
+        <div class='col-xs-12'>
+          <div class='form-group'>
+            <label for='image-path'>Image URL</label>
+            <input
+              #imagePath
+              class='form-control'
+              formControlName='imagePath'
+              id='image-path'
+              type='text'>
+          </div>
+        </div>
+      </div>
+      <div class='row'>
+        <div class='col-xs-12'>
+          <div class='form-group'>
+            <img [src]='imagePath.value' class='img-responsive'>
+          </div>
+        </div>
+      </div>
+      <div class='row'>
+        <div class='col-xs-12'>
+          <div class='form-group'>
+            <label for='description'>Description</label>
+            <textarea
+              class='form-control'
+              formControlName='description'
+              id='description'
+              rows='6'
+            ></textarea>
+          </div>
+        </div>
+      </div>
+      <div class='row'>
+        <div
+          class='col-xs-12'
+          formArrayName='ingredients'>
+          <div
+            *ngFor='let ingredientCtrl  of controls; let i  = index'
+            [formGroupName]='i'
+            class='row'
+            style='
+            margin-top: 10px;'>
+            <div class='col-xs-8'>
+              <!--              <label for='ingredient-name'>Ingredient</label>-->
+              <input
+                class='form-control'
+                formControlName='name'
+                id='ingredient-name'
+                type='text'>
+            </div>
+            <div class='col-xs-2'>
+              <!--              <label for='amount'>Amount</label>-->
+              <input
+                class='form-control'
+                formControlName='amount'
+                id='amount'
+                type='number'>
+            </div>
+            <div class='col-xs-2'>
+              <!--              <button-->
+              <!--                class='btn btn-danger'-->
+              <!--                style='margin-top: 25px;'-->
+              <!--              >X-->
+              <!--              </button>-->
+              <button
+                (click)='onDeleteIngredient(i)'
+                class='btn btn-danger'
+                type='button'
+              >X
+              </button>
+            </div>
+          </div>
+          <hr>
+          <div class='row'>
+            <div class='col-xs-12'>
+              <button
+                (click)='onAddIngredient()'
+                class='btn btn-success'
+                type='button'>Add Ingredient
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
