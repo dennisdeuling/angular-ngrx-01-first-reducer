@@ -1,10 +1,6 @@
 import * as ShoppingListActions from './shopping-list.actions';
 import { Ingredient } from '../../shared/ingredient.model';
 
-export type appStoreType = {
-	shoppingList: stateType;
-};
-
 export type stateType = {
 	ingredients: Ingredient[];
 	editedIngredient: Ingredient | null;
@@ -17,7 +13,7 @@ const initialState: stateType = {
 	editedIngredientIndex: -1
 };
 
-export function ShoppingListReducer(
+export function shoppingListReducer(
 	state: stateType = initialState,
 	action: ShoppingListActions.ShoppingListActions
 ) {
