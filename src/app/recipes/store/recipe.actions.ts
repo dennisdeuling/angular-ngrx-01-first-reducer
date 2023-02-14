@@ -10,45 +10,51 @@ export const UPDATE_RECIPE = '[Recipe] update recipe';
 export const DELETE_RECIPE = '[Recipe] delete recipe';
 
 export class setRecipes implements Action {
-	readonly type = SET_RECIPES;
+  readonly type = SET_RECIPES;
 
-	constructor(public payload: Recipe[]) {}
+  constructor(public payload: Recipe[]) {
+  }
 }
 
 export class fetchRecipes implements Action {
-	readonly type = FETCH_RECIPES;
+  readonly type = FETCH_RECIPES;
 
-	constructor() {}
+  constructor() {
+  }
 }
 
 export class storeRecipes implements Action {
-	readonly type = STORE_RECIPES;
+  readonly type = STORE_RECIPES;
 
-	constructor() {}
+  constructor() {
+  }
 }
 
 export class addRecipe implements Action {
-	readonly type = ADD_RECIPE;
+  readonly type = ADD_RECIPE;
 
-	constructor(public payload: { newRecipe: Recipe }) {}
+  constructor(public payload: { newRecipe: Recipe }) {
+  }
 }
 
 export class updateRecipe implements Action {
-	readonly type = UPDATE_RECIPE;
+  readonly type = UPDATE_RECIPE;
 
-	constructor(public payload: { index: number; newRecipe: Recipe }) {}
+  constructor(public payload: { index: number; newRecipe: Recipe }) {
+  }
 }
 
 export class deleteRecipe implements Action {
-	readonly type = DELETE_RECIPE;
+  readonly type = DELETE_RECIPE;
 
-	constructor(public payload: { index: number }) {}
+  constructor(public payload: number) {
+  }
 }
 
 export type RecipesActions =
-	| setRecipes
-	| fetchRecipes
-	| storeRecipes
-	| addRecipe
-	| updateRecipe
-	| deleteRecipe;
+  | setRecipes
+  | fetchRecipes
+  | storeRecipes
+  | addRecipe
+  | updateRecipe
+  | deleteRecipe;
